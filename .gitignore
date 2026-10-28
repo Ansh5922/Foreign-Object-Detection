@@ -1,0 +1,34 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+.venv/
+env*/
+
+# Datasets & Large Archives
+*.zip
+*.tar
+*.tar.gz
+*.7z
+data/
+datasets/
+FOD-A*.zip
+FOD_A_PascalVoc/
+
+# Training artifacts & runs
+runs/
+*.pt
+*.onnx
+*.engine
+*.tflite
+wandb/
+
+# IDE / OS specific
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
