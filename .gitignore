@@ -32,8 +32,17 @@ wandb/
 .vscode/
 .DS_Store
 Thumbs.db
+run_live_demo.py
 
-# Builder / Generator Helper Scripts
-create_*.py
-create_eda_notebook.py
-train_model.py
+# Media files (Images & Videos)
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.avi
+*.mov
+*.mkv
+diagnostic_results/
+submission/diagnostic_images/
+submission/*.mp4
+submission/*.png
