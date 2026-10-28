@@ -32,8 +32,4 @@ wandb/
 .vscode/
 .DS_Store
 Thumbs.db
-
-# Builder / Generator Helper Scripts
-create_*.py
-create_eda_notebook.py
-train_model.py
+run_live_demo.py

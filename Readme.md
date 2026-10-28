@@ -59,3 +59,29 @@ Mapped from 31 granular airfield debris categories into **6 FAA/ICAO-aligned ope
   - **$mAP@50$:** **97.8%**
   - **$mAP@50\text{-}95$:** **74.8%**
 - **Pipeline Implementation:** Complete training setup documented in [`02_Model_Training_Pipeline.ipynb`](./02_Model_Training_Pipeline.ipynb).
+
+---
+
+## Held-Out Test Evaluation & Metrics (Tasks 3 & 5)
+Evaluated strictly on **600 quarantined test images**:
+- **Test Precision ($P$):** **95.34%**
+- **Test Recall ($R$):** **95.77%**
+- **Test $mAP@50$:** **96.81%**
+- **Test $mAP@50\text{-}95$:** **71.53%**
+- **Detection Breakdown:** 595 True Positives, 75 False Positives (False Alarms), 18 False Negatives (Missed Objects).
+- **Runway Safety Threshold Tuning:** Evaluated precision-recall trade-off across confidence levels; identified **$\tau = 0.25$ as optimal operating point**, yielding **$97.06\%$ hazard recall** while preventing operator alert fatigue ($88.81\%$ precision).
+
+---
+
+## Submission Deliverables & Artifacts
+1. **Full Technical Report:** [`FOD_Detection_Technical_Report.md`](./FOD_Detection_Technical_Report.md) (covers dataset, training justification, metrics, error analysis, threshold reasoning, and UAV edge architecture).
+2. **Result Inspection Video:** [`runway_fod_inspection_hd.mp4`](./runway_fod_inspection_hd.mp4) (24.0s 720p HD cinematic video @ 30 FPS, showcasing real-time detections with corner reticles, confidence scores, and dual-panel UAV telemetry HUD).
+3. **6 Diagnostic Images:** Located in [`diagnostic_results/`](./diagnostic_results/):
+   - 2 True Positive cases (accurate debris localization).
+   - 2 False Positive cases (false alarms on asphalt cracks/textures).
+   - 2 False Negative cases (misses on micro-scale / camouflaged hazards).
+   - Consolidated 2x3 overview in [`diagnostic_summary_grid.png`](./diagnostic_results/diagnostic_summary_grid.png).
+4. **Reproducible Jupyter Notebooks:**
+   - [`01_EDA_and_Data_Preparation.ipynb`](./01_EDA_and_Data_Preparation.ipynb)
+   - [`02_Model_Training_Pipeline.ipynb`](./02_Model_Training_Pipeline.ipynb)
+   - [`03_Evaluation_and_Error_Analysis.ipynb`](./03_Evaluation_and_Error_Analysis.ipynb)
