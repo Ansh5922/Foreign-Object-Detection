@@ -28,4 +28,12 @@ Mapped from 31 granular airfield debris categories into **6 FAA/ICAO-aligned ope
 
 ---
 
-
+## Dataset & Exploratory Data Analysis (EDA)
+- **Benchmark Source:** FOD-A (Foreign Object Debris in Airports) airfield dataset.
+- **Taxonomy:** 31 raw categories mapped into 6 operational runway hazard classes (`fastener`, `tool`, `tire_fragment`, `metal_scrap`, `plastic_debris`, `stone_rock`).
+- **Data Stratification & Splits:** 4,000 curated, non-redundant images partitioned into:
+  - **Train:** 2,800 images (70%)
+  - **Validation:** 600 images (15%)
+  - **Held-out Test:** 600 images (15%)
+- **Multi-Condition Coverage:** Spans dry and wet asphalt, with bright, dim, and dark lighting conditions.
+- **Pipeline Implementation:** Fully reproducible Jupyter notebook in [`01_EDA_and_Data_Preparation.ipynb`](./01_EDA_and_Data_Preparation.ipynb) with YOLO format labels and [`dataset.yaml`](./data/dataset.yaml).
