@@ -36,3 +36,4 @@ Thumbs.db
 # Builder / Generator Helper Scripts
 create_*.py
 create_eda_notebook.py
+train_model.py

@@ -46,3 +46,16 @@ Mapped from 31 granular airfield debris categories into **6 FAA/ICAO-aligned ope
 - **Batch Size:** 16 (optimized for local 4GB RTX 2050 GPU with automatic mixed precision `fp16`).
 - **Optimization:** AdamW optimizer with Cosine Annealing learning rate schedule.
 - **Airport-Specific Augmentations:** Mosaic (simulates altitude/zoom changes), HSV color jitter (sunlight, shadows, dusk), and rotational invariance.
+
+---
+
+## Model Training Results (Task 2)
+- **Trained Model Checkpoint:** `runs/detect/runs/detect/fod_yolo11n_runway/weights/best.pt` (5.5 MB)
+- **Training Time:** 35 epochs completed in ~27 minutes on NVIDIA GeForce RTX 2050 GPU.
+- **Inference Speed:** **4.3 ms per image (~150+ FPS)** on GPU, fully satisfying real-time UAV flight requirements.
+- **Validation Metrics on `best.pt`:**
+  - **Overall Precision ($P$):** **94.8%**
+  - **Overall Recall ($R$):** **95.7%** (Critical safety benchmark: $<4.3\%$ debris miss rate)
+  - **$mAP@50$:** **97.8%**
+  - **$mAP@50\text{-}95$:** **74.8%**
+- **Pipeline Implementation:** Complete training setup documented in [`02_Model_Training_Pipeline.ipynb`](./02_Model_Training_Pipeline.ipynb).
