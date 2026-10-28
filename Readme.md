@@ -37,3 +37,12 @@ Mapped from 31 granular airfield debris categories into **6 FAA/ICAO-aligned ope
   - **Held-out Test:** 600 images (15%)
 - **Multi-Condition Coverage:** Spans dry and wet asphalt, with bright, dim, and dark lighting conditions.
 - **Pipeline Implementation:** Fully reproducible Jupyter notebook in [`01_EDA_and_Data_Preparation.ipynb`](./01_EDA_and_Data_Preparation.ipynb) with YOLO format labels and [`dataset.yaml`](./data/dataset.yaml).
+
+---
+
+## Model Selection & Training Strategy
+- **Detector Architecture:** **YOLO11 Nano (`yolo11n`)** with C2PSA (Cross-Stage Partial with Spatial Attention), engineered to focus on small anomalous debris amidst vast tarmac background.
+- **Input Resolution:** $640 \times 640$ (preserves feature representations for micro-fasteners $< 32\text{ px}$).
+- **Batch Size:** 16 (optimized for local 4GB RTX 2050 GPU with automatic mixed precision `fp16`).
+- **Optimization:** AdamW optimizer with Cosine Annealing learning rate schedule.
+- **Airport-Specific Augmentations:** Mosaic (simulates altitude/zoom changes), HSV color jitter (sunlight, shadows, dusk), and rotational invariance.
